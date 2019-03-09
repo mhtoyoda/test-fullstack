@@ -5,11 +5,11 @@ import com.test.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +22,7 @@ public class UserResource {
     private final UserService userService;
 
     @PostMapping
-    public @ResponseBody ResponseEntity saveUser(@RequestBody UserDTO userDTO){
+    public @ResponseBody ResponseEntity saveUser(@Valid @RequestBody UserDTO userDTO){
         try{
             UserDTO dto = userService.save(userDTO);
             return ResponseEntity.status(200).body(dto);
@@ -66,7 +66,7 @@ public class UserResource {
     }
 
     @PutMapping("/{id}")
-    public @ResponseBody ResponseEntity updateUserById(@PathVariable("id") Long id, @RequestBody UserDTO userDTO){
+    public @ResponseBody ResponseEntity updateUserById(@PathVariable("id") Long id, @Valid @RequestBody UserDTO userDTO){
         try{
             userDTO.setId(id);
             UserDTO dtoUpdate = userService.update(userDTO);

@@ -61,9 +61,7 @@
 	</dependencies>
 
 	<build>
-
 		<plugins>
-
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
@@ -72,7 +70,6 @@
 					<wtpversion>2.0</wtpversion>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -82,9 +79,6 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-
 		</plugins>
-
 	</build>
-
 </project>
